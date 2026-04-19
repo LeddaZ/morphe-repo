@@ -1,14 +1,14 @@
 {
-  "latestYtVersion": "20.14.43",
-  "latestYtmVersion": "8.10.52",
+  "latestYtVersion": "20.45.36",
+  "latestYtmVersion": "8.44.54",
   "latestXVersion": "10.86.0",
-  "latestYtDate": "20260218",
-  "latestYtmDate": "20260218",
+  "latestYtDate": "20260419",
+  "latestYtmDate": "20260419",
   "latestXDate": "20251019",
-  "latestYtHash": "cef31dafe9770a0969a9c555c1ed81abe962a54556322a5e58fdca2ad759bf07",
-  "latestYtmHashArm": "1a4ccf90cea4d7f638ff5d40e8402191f65908b533a2e672d7228e1f430e8831",
-  "latestYtmHashArm64": "d91c378bffeecf1cbac78fb42a04a7e89932f2e1db224fc6ad1b9e100091dd9c",
-  "latestYtmHashX86": "3e499ca5b16740d312996237f3a07466206e1055fb333974adc6fe7d4bbfc68e",
-  "latestYtmHashX86_64": "ed35478be5ce83ac8589a1710b741156dc746cc3d4fd6575f002eb9865dbc779",
+  "latestYtHash": "deba527fbe248fc8a528665730d4e35e453ba2867f6e1e59b6c8009e22fb6fe7",
+  "latestYtmHashArm": "1d4283b29621fcaf23d288cafc842fe03d4f3f378d0f7d08793e3eaef4e2661c",
+  "latestYtmHashArm64": "fffcee65ae4534e7cb03f41c32aee53a57926db2e9eaa31139a8396d3c54c41a",
+  "latestYtmHashX86": "c7f68f7469a4125edbe92b2e6ca247b6ae612ad2c167ced73002df911c70428e",
+  "latestYtmHashX86_64": "5727d0740c9f5e570a2bb22a7108bcc42e3231678a622ee6a206265dccf11280",
   "latestXHash": "59d52a05dc01d505266964a0904121273e7b24388020f6e0917829bfb4ce2a01"
 }
