@@ -1,12 +1,12 @@
 #!/bin/bash
 
-music=no
-revanced=no
+ytm=no
+yt=no
 x=no
-while getopts mrx flag; do
+while getopts myx flag; do
     case "${flag}" in
-    m) music=yes ;;
-    r) revanced=yes ;;
+    m) ytm=yes ;;
+    y) yt=yes ;;
     x) x=yes ;;
     esac
 done
@@ -14,11 +14,11 @@ done
 mkdir -p build/hashes
 
 # Generate SHA-256 hashes
-if [ "$revanced" = 'yes' ]; then
+if [ "$yt" = 'yes' ]; then
     sha256sum build/yt/yt-signed.apk >build/hashes/sha256-yt.txt
 fi
 
-if [ "$music" = 'yes' ]; then
+if [ "$ytm" = 'yes' ]; then
     sha256sum build/ytm/ytm*-signed.apk >build/hashes/sha256-ytm.txt
 fi
 

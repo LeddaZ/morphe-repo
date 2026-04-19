@@ -1,88 +1,88 @@
 #!/bin/bash
 
 # Set up flags
-music=no
-revanced=no
+ytm=no
+yt=no
 x=no
-while getopts mrx flag; do
+while getopts myx flag; do
     case "${flag}" in
-    m) music=yes ;;
-    r) revanced=yes ;;
+    m) ytm=yes ;;
+    y) yt=yes ;;
     x) x=yes ;;
     esac
 done
 
 for file in *cli*; do
-    mv -- "$file" revanced-cli.jar
+    mv -- "$file" morphe-cli.jar
 done
 
 for file in *patches*; do
-    mv -- "$file" revanced-patches.rvp
+    mv -- "$file" morphe-patches.mpp
 done
 
 mkdir -p build/yt
 mkdir -p build/ytm
 mkdir -p build/x
 
-if [ "$revanced" = 'yes' ]; then
+if [ "$yt" = 'yes' ]; then
     echo "**************************"
     echo "*    Building YouTube    *"
     echo "**************************"
 
     if [ -f "yt.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             -o build/yt/yt.apk yt.apk
-        echo "YouTube ReVanced build finished"
+        echo "YouTube build finished"
     else
         echo "Cannot find YouTube APK, skipping build"
     fi
 else
-    echo "Skipping YouTube ReVanced build"
+    echo "Skipping YouTube build"
 fi
 
-if [ "$music" = 'yes' ]; then
+if [ "$ytm" = 'yes' ]; then
     echo "********************************"
     echo "*    Building YouTube Music    *"
     echo "********************************"
 
     echo "=== Building arm APK ==="
     if [ -f "music-arm.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             -o build/ytm/ytm-armeabi-v7a.apk music-arm.apk
-        echo "ReVanced Music arm build finished"
+        echo "YouTube Music arm build finished"
     else
         echo "Cannot find YouTube Music arm APK, skipping build"
     fi
 
     echo "=== Building arm64 APK === "
     if [ -f "music-arm64.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             -o build/ytm/ytm-arm64-v8a.apk music-arm64.apk
-        echo "ReVanced Music arm64 build finished"
+        echo "YouTube Music arm64 build finished"
     else
         echo "Cannot find YouTube Music arm64 APK, skipping build"
     fi
 
     echo "=== Building x86 APK ==="
     if [ -f "music-x86.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             -o build/ytm/ytm-x86.apk music-x86.apk
-        echo "ReVanced Music x86 build finished"
+        echo "YouTube Music x86 build finished"
     else
         echo "Cannot find YouTube Music x86 APK, skipping build"
     fi
 
     echo "=== Building x86_64 APK ==="
     if [ -f "music-x86_64.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             -o build/ytm/ytm-x86_64.apk music-x86_64.apk
-        echo "ReVanced Music x86_64 build finished"
+        echo "YouTube Music x86_64 build finished"
     else
         echo "Cannot find YouTube Music x86_64 APK, skipping build"
     fi
-    echo "ReVanced Music build finished"
+    echo "YouTube Music build finished"
 else
-    echo "Skipping ReVanced Music build"
+    echo "Skipping YouTube Music build"
 fi
 
 if [ "$x" = 'yes' ]; then
@@ -91,7 +91,7 @@ if [ "$x" = 'yes' ]; then
     echo "********************"
 
     if [ -f "x.apk" ]; then
-        java -jar revanced-cli.jar patch -p revanced-patches.rvp \
+        java -jar morphe-cli.jar patch -p morphe-patches.mpp \
             --di 176 --di 179 -o build/x/x.apk x.apk
         echo "X build finished"
     else

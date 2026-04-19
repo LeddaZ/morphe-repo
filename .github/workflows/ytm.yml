@@ -1,4 +1,4 @@
-name: Build ReVanced Music
+name: Build YouTube Music
 
 on:
   workflow_dispatch:
@@ -16,19 +16,19 @@ jobs:
           java-version: '25'
           distribution: zulu
 
-      - name: Download ReVanced CLI
+      - name: Download Morphe CLI
         uses: robinraju/release-downloader@v1.12
         with:
-          repository: 'ReVanced/revanced-cli'
+          repository: 'MorpheApp/morphe-cli'
           latest: true
           fileName: '*.jar'
 
-      - name: Download ReVanced Patches
+      - name: Download Morphe patches
         uses: robinraju/release-downloader@v1.12
         with:
-          repository: 'ReVanced/revanced-patches'
+          repository: 'MorpheApp/morphe-patches'
           latest: true
-          fileName: '*.rvp'
+          fileName: '*.mpp'
 
       - name: Download YouTube Music APKs
         uses: robinraju/release-downloader@v1.12
@@ -46,7 +46,7 @@ jobs:
           "date_now_nodashes=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
       - uses: kevin-david/zipalign-sign-android-release@v2.0.2
-        name: Sign ReVanced Music APKs
+        name: Sign YouTube Music APKs
         id: sign_ytm
         with:
           releaseDirectory: build/ytm/
@@ -59,11 +59,11 @@ jobs:
         run: ./scripts/sha256gen.sh -m
 
       - uses: marvinpinto/action-automatic-releases@latest
-        name: Release ReVanced Music
+        name: Release YouTube Music
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           automatic_release_tag: '${{ env.date_now_nodashes }}-ytm'
-          title: 'ReVanced Music ${{ env.date_now }}'
+          title: 'Morphe YTM ${{ env.date_now }}'
           prerelease: false
           files: |
             build/hashes/sha256-ytm.txt

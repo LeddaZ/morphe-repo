@@ -1,4 +1,4 @@
-name: Build ReVanced
+name: Build YouTube
 
 on:
   workflow_dispatch:
@@ -16,19 +16,19 @@ jobs:
           java-version: '25'
           distribution: zulu
 
-      - name: Download ReVanced CLI
+      - name: Download Morphe CLI
         uses: robinraju/release-downloader@v1.12
         with:
-          repository: 'ReVanced/revanced-cli'
+          repository: 'MorpheApp/morphe-cli'
           latest: true
           fileName: '*.jar'
 
-      - name: Download ReVanced Patches
+      - name: Download Morphe patches
         uses: robinraju/release-downloader@v1.12
         with:
-          repository: 'ReVanced/revanced-patches'
+          repository: 'MorpheApp/morphe-patches'
           latest: true
-          fileName: '*.rvp'
+          fileName: '*.mpp'
 
       - name: Download YouTube APK
         uses: robinraju/release-downloader@v1.12
@@ -37,8 +37,8 @@ jobs:
           tag: base
           fileName: yt.apk
 
-      - name: Build APKs
-        run: ./scripts/build.sh -r
+      - name: Build APK
+        run: ./scripts/build.sh -y
 
       - name: Set current date as env variable
         run: >-
@@ -46,7 +46,7 @@ jobs:
           "date_now_nodashes=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
       - uses: kevin-david/zipalign-sign-android-release@v2.0.2
-        name: Sign ReVanced APK
+        name: Sign YouTube APK
         id: sign_yt
         with:
           releaseDirectory: build/yt/
@@ -56,14 +56,14 @@ jobs:
           keyPassword: '${{ secrets.KEY_PASSWORD }}'
 
       - name: Generate SHA256 checksums for the signed APK file
-        run: ./scripts/sha256gen.sh -r
+        run: ./scripts/sha256gen.sh -y
 
       - uses: marvinpinto/action-automatic-releases@latest
-        name: Release ReVanced
+        name: Release YouTube
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           automatic_release_tag: '${{ env.date_now_nodashes }}-yt'
-          title: 'ReVanced ${{ env.date_now }}'
+          title: 'Morphe YT ${{ env.date_now }}'
           prerelease: false
           files: |
             build/hashes/sha256-yt.txt
