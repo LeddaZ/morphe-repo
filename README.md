@@ -5,7 +5,7 @@ This repo template will allow you to build Morphe-patched YouTube and YouTube Mu
 > These are **unofficial** builds. The Morphe team is not responsible for issues derived from unofficial apps and I'm not part of or affiliated with the Morphe team.
 
 > [!warning]
-> X is currently **unspported**. The app added checks that prevent logging in on modified versions; while there are workarounds, they don't work for everyone and might stop working at any time, so until a stable/permanent solution is found, I won't build patched X APKs.
+> X is currently **unsupported**. The app added checks that prevent logging in on modified versions; while there are workarounds, they don't work for everyone and might stop working at any time, so until a stable/permanent solution is found, I won't build patched X APKs.
 
 You can modify the `scripts/build.sh` script to choose the patches you want. A list of available patches and their descriptions can be found [here](https://github.com/MorpheApp/morphe-patches/blob/main/patches-list.json).
 

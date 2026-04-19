@@ -1,4 +1,4 @@
-# ReVanced changelog
+# Morphe YT changelog
 
 ## 2026-02-18
 **UI & Layout Improvements**

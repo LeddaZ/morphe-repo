@@ -1,4 +1,4 @@
-# ReVanced Music changelog
+# Morphe YTM changelog
 
 ## 2026-02-18
 - **Hide category bar**: Correctly hide the category bar in newer app targets

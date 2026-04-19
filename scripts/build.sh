@@ -21,11 +21,7 @@ rename_artifacts() {
 # Print a banner for the current build target
 print_banner() {
     local label="$1"
-    local border
-    border=$(printf '%*s' $((${#label} + 8)) '' | tr ' ' '*')
-    echo "$border"
-    echo "*    $label    *"
-    echo "$border"
+    echo "***    $label    ***"
 }
 
 # Patch a single APK
