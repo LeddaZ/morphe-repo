@@ -17,21 +17,21 @@ jobs:
           distribution: zulu
 
       - name: Download Morphe CLI
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: 'MorpheApp/morphe-cli'
           latest: true
           fileName: '*.jar'
 
       - name: Download Morphe patches
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: 'MorpheApp/morphe-patches'
           latest: true
           fileName: '*.mpp'
 
       - name: Download YouTube APK
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: '${{ github.repository }}'
           tag: base

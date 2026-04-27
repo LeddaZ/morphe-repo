@@ -17,21 +17,21 @@ jobs:
           distribution: zulu
 
       - name: Download ReVanced CLI
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: 'ReVanced/revanced-cli'
           latest: true
           fileName: '*.jar'
 
       - name: Download ReVanced Patches
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: 'ReVanced/revanced-patches'
           latest: true
           fileName: '*.rvp'
 
       - name: Download X APK
-        uses: robinraju/release-downloader@v1.12
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: '${{ github.repository }}'
           tag: base
